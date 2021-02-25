@@ -2,7 +2,7 @@
 sentry_dingtalk.models
 ~~~~~~~~~~~~~~~~~~~~~
 
-:copyright: (c) 2018 by zhangshijie, see AUTHORS for more details.
+:copyright: (c) 2021 by lpcoder, see AUTHORS for more details.
 :license: BSD, see LICENSE for more details.
 """
 
@@ -54,13 +54,13 @@ class DingtalkForm(notify.NotificationConfigurationForm):
 
  
 class DingtalkPlugin(notify.NotificationPlugin):
-    author = 'ZhangShiJie'
-    author_url = 'https://github.com/zhangshj/sentry-dingtalk'
+    author = 'lpcoder'
+    author_url = 'https://github.com/liupcoder/sentry_dingtalk_bot'
     version = sentry.VERSION
     description = "Integrates dingtalk robot."
     resource_links = [
-        ('Bug Tracker', 'https://github.com/zhangshj/sentry-dingtalk/issues'),
-        ('Source', 'https://github.com/zhangshj/sentry-dingtalk'),
+        ('Bug Tracker', 'https://github.com/liupcoder/sentry_dingtalk_bot'),
+        ('Source', 'https://github.com/liupcoder/sentry_dingtalk_bot'),
     ]
 
     slug = 'dingtalk'
@@ -117,11 +117,12 @@ class DingtalkPlugin(notify.NotificationPlugin):
             return
         url = self.get_webhook_urls(group.project)
         link = self.get_group_url(group)
-        message_format = '[%s] %s   %s'
-        message = message_format % (event.title, event.message, link)
-        data = {"msgtype": "text",
-                    "text": {
-                        "content": message
+        message_format = '%s\n%s'
+        message = message_format % (event.message, link)
+        data = {"msgtype": "markdown",
+                    "markdown": {
+                        "title": event.title
+                        "text": message
                     }
                 }
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
