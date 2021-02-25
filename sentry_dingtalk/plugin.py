@@ -2,7 +2,7 @@
 sentry_dingtalk.models
 ~~~~~~~~~~~~~~~~~~~~~
 
-:copyright: (c) 2018 by zhangshijie, see AUTHORS for more details.
+:copyright: (c) 2021 by lpcoder, see AUTHORS for more details.
 :license: BSD, see LICENSE for more details.
 """
 
@@ -54,13 +54,13 @@ class DingtalkForm(notify.NotificationConfigurationForm):
 
  
 class DingtalkPlugin(notify.NotificationPlugin):
-    author = 'ZhangShiJie'
-    author_url = 'https://github.com/zhangshj/sentry-dingtalk'
+    author = 'lpcoder'
+    author_url = 'https://github.com/liupcoder/sentry_dingtalk_bot'
     version = sentry.VERSION
     description = "Integrates dingtalk robot."
     resource_links = [
-        ('Bug Tracker', 'https://github.com/zhangshj/sentry-dingtalk/issues'),
-        ('Source', 'https://github.com/zhangshj/sentry-dingtalk'),
+        ('Bug Tracker', 'https://github.com/liupcoder/sentry_dingtalk_bot/issues'),
+        ('Source', 'https://github.com/liupcoder/sentry_dingtalk_bot'),
     ]
 
     slug = 'dingtalk'
