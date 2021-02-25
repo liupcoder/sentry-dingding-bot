@@ -1,8 +1,8 @@
 """
-sentry_dingtalk.models
+sentry_dingding_bot.models
 ~~~~~~~~~~~~~~~~~~~~~
 
-:copyright: (c) 2018 by zhangshijie, see AUTHORS for more details.
+:copyright: (c) 2021 by lpcoder, see AUTHORS for more details.
 :license: BSD, see LICENSE for more details.
 """
 

@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-sentry-Dingtalk
+sentry_dingtalk_bot
 ==============
 
 An extension for Sentry which integrates with Dingtalk. It will send
 notifications to dingtalk robot.
 
-:copyright: (c) 2017 by guoyong yi, see AUTHORS for more details.
+:copyright: (c) 2021 by lpcoder yi, see AUTHORS for more details.
 :license: BSD, see LICENSE for more details.
 """
 from setuptools import setup, find_packages
@@ -26,12 +26,12 @@ install_requires = [
 
 
 setup(
-    name='sentry-dingtalk-new',
-    version='1.2.0',
+    name='sentry_dingtalk_bot',
+    version='1.2.1',
     keywords='sentry dingding dingtalk',
-    author='ZhangShiJie',
-    author_email='zhangshijie62302@offcn.com',
-    url='https://github.com/zhangshj/sentry-dingtalk.git',
+    author='lpcoder',
+    author_email='liupcoder@126.com',
+    url='https://github.com/liupcoder/sentry-dingding-bot.git',
     description='A Sentry extension which integrates with Dingtalk robot.',
     long_description=__doc__,
     long_description_content_type='text/markdown',
@@ -45,7 +45,7 @@ setup(
     test_suite='nose.collector',
     entry_points={
         'sentry.plugins': [
-            'dingtalk = sentry_dingtalk.plugin:DingtalkPlugin'
+            'dingtalk = sentry_dingtalk_bot.plugin:DingtalkPlugin'
         ],
     },
     include_package_data=True,
