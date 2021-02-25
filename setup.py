@@ -27,7 +27,7 @@ install_requires = [
 
 setup(
     name='sentry_dingtalk_bot',
-    version='1.2.1',
+    version='1.3.6',
     keywords='sentry dingding dingtalk',
     author='lpcoder',
     author_email='liupcoder@126.com',

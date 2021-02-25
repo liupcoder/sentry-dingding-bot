@@ -14,6 +14,7 @@ import requests
 import logging
 import six
 import sentry
+import sentry_dingtalk_bot
 
 from django import forms
 from django.conf import settings
@@ -54,13 +55,13 @@ class DingtalkForm(notify.NotificationConfigurationForm):
 
  
 class DingtalkPlugin(notify.NotificationPlugin):
-    author = 'ZhangShiJie'
-    author_url = 'https://github.com/zhangshj/sentry-dingtalk'
-    version = sentry.VERSION
+    author = 'lpcoder'
+    author_url = ''
+    version = sentry_dingtalk_bot.VERSION
     description = "Integrates dingtalk robot."
     resource_links = [
-        ('Bug Tracker', 'https://github.com/zhangshj/sentry-dingtalk/issues'),
-        ('Source', 'https://github.com/zhangshj/sentry-dingtalk'),
+        ('Bug Tracker', ''),
+        ('Source', ''),
     ]
 
     slug = 'dingtalk'
@@ -117,11 +118,12 @@ class DingtalkPlugin(notify.NotificationPlugin):
             return
         url = self.get_webhook_urls(group.project)
         link = self.get_group_url(group)
-        message_format = '[%s] %s   %s'
-        message = message_format % (event.title, event.message, link)
-        data = {"msgtype": "text",
-                    "text": {
-                        "content": message
+        message_format = '%s\n%s'
+        message = message_format % (event.message, link)
+        data = {"msgtype": "markdown",
+                    "markdown": {
+                        "title": event.title
+                        "text": message
                     }
                 }
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
