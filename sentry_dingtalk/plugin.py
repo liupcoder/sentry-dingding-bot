@@ -117,11 +117,12 @@ class DingtalkPlugin(notify.NotificationPlugin):
             return
         url = self.get_webhook_urls(group.project)
         link = self.get_group_url(group)
-        message_format = '[%s] %s   %s'
-        message = message_format % (event.title, event.message, link)
-        data = {"msgtype": "text",
-                    "text": {
-                        "content": message
+        message_format = '### [%s报警] %s \n\n > %s \n\n [查看详情](%s) \n\n'
+        message = message_format % (group.project.slug, event.title, event.message, link)
+        data = {"msgtype": "markdown",
+                    "markdown": {
+                        "title": event.title,
+                        "text": message
                     }
                 }
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}

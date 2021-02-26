@@ -27,9 +27,9 @@ install_requires = [
 
 setup(
     name='sentry_dingtalk_bot',
-    version='1.4.0',
+    version='1.4.5',
     keywords='sentry dingding dingtalk',
-    author='ZhangShiJie',
+    author='lpcoder',
     author_email='liupcoder@126.com',
     url='https://github.com/liupcoder/sentry_dingtalk_bot.git',
     description='A Sentry extension which integrates with Dingtalk robot.',
